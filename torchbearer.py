@@ -34,7 +34,19 @@ def explain_problem():
 
     TODO
     """
-    return "TODO"
+    return """
+    Why a single shortest-path run from S is not enough:
+    A single shortest-path run from S to T is not enough because a shortest-path run does not necessarily guarantee that traversal through all relics.
+    Furthermore, when going from S to relic R1, shortest path only provides a path starting from S and therefore once at R1, we don't know the path to 
+    the next relic.
+
+    What decision remains after all inter-location costs are known:
+    After all inter-location costs are known, the optimal order I traverse through all relics still remain.
+
+    Why this requires a search over orders (one sentence):
+    This requires a search over orders because local decisions don't guarantee a global optimum
+
+    """
 
 
 # =============================================================================
