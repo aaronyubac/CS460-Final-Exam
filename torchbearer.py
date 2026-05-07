@@ -67,7 +67,17 @@ def select_sources(spawn, relics, exit_node):
 
     TODO
     """
-    pass
+
+    # We want paths from spawn and relics
+    # No need to add exit_node because at no point will we travel FROM exit_node
+    # Use set because no duplicates and order does not matter
+    sources = set()
+    sources.add(spawn)
+
+    for r in relics:
+        sources.add(r)
+
+    return list(sources)
 
 
 def run_dijkstra(graph, source):
