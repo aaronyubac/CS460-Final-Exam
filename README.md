@@ -126,11 +126,11 @@ _Your answer here._
 > Document the three components of your search state as a table.
 > Variable names here must match exactly what you use in torchbearer.py.
 
-| Component | Variable name in code | Data type | Description |
-|---|---|---|---|
-| Current location | | | |
-| Relics already collected | | | |
-| Fuel cost so far | | | |
+| Component                | Variable name in code | Data type | Description |
+| ------------------------ | --------------------- | --------- | ----------- |
+| Current location         |                       |           |             |
+| Relics already collected |                       |           |             |
+| Fuel cost so far         |                       |           |             |
 
 ### Part 5b: Data Structure for Visited Relics
 
