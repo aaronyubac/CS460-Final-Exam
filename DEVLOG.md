@@ -10,12 +10,12 @@
 
 ---
 
-## Entry 1 – 5/6: Initial Plan
+## Entry 1 – 5/7: Initial Plan
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-_Your entry here._
+I plan on initially implementing core functions which drive our algorithm; this includes `select_sources`, `run_dijkstra` and `precompute_distances`. I expect building an understanding of how all parts work together to cause some difficulty as well as implementation for parts of functions like backtracking to be difficult. As for testing, I plan on understanding and utilizing the provided \_run_tests() function to test for overall behavior. I also plan to test certain parts by themself to ensure their functionality works in isolation such as making sure that Dijkstra's is returning the expected values.
 
 ---
 
@@ -47,14 +47,14 @@ _Your entry here._
 
 > Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
-| Part | Estimated Hours |
-|---|---|
-| Part 1: Problem Analysis | |
-| Part 2: Precomputation Design | |
-| Part 3: Algorithm Correctness | |
-| Part 4: Search Design | |
-| Part 5: State and Search Space | |
-| Part 6: Pruning | |
-| Part 7: Implementation | |
-| README and DEVLOG writing | |
-| **Total** | |
+| Part                           | Estimated Hours |
+| ------------------------------ | --------------- |
+| Part 1: Problem Analysis       | 1               |
+| Part 2: Precomputation Design  |                 |
+| Part 3: Algorithm Correctness  |                 |
+| Part 4: Search Design          |                 |
+| Part 5: State and Search Space |                 |
+| Part 6: Pruning                |                 |
+| Part 7: Implementation         |                 |
+| README and DEVLOG writing      |                 |
+| **Total**                      |                 |

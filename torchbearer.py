@@ -45,7 +45,6 @@ def explain_problem():
 
     Why this requires a search over orders (one sentence):
     This requires a search over orders because local decisions don't guarantee a global optimum
-
     """
 
 
