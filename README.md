@@ -33,31 +33,31 @@
 
 > List the source node types as a bullet list. For each, one-line reason.
 
-| Source Node Type | Why it is a source |
-|---|---|
-| _node type_ | _one-line reason_ |
-| _node type_ | _one-line reason_ |
+| Source Node Type | Why it is a source                                  |
+| ---------------- | --------------------------------------------------- |
+| _Spawn_          | _We start from S and need a path from S to a relic_ |
+| _Relics_         | _We need a path from each relic to the next_        |
 
 ### Part 2b: Distance Storage
 
 > Fill in the table. No prose required.
 
-| Property | Your answer |
-|---|---|
-| Data structure name | |
-| What the keys represent | |
-| What the values represent | |
-| Lookup time complexity | |
-| Why O(1) lookup is possible | |
+| Property                    | Your answer                 |
+| --------------------------- | --------------------------- |
+| Data structure name         | Nested Dictionary           |
+| What the keys represent     | Source and Destination Node |
+| What the values represent   | Distance from u to v        |
+| Lookup time complexity      | O(1)                        |
+| Why O(1) lookup is possible | Hashing                     |
 
 ### Part 2c: Precomputation Complexity
 
 > State the total complexity and show the arithmetic. Two to three lines max.
 
-- **Number of Dijkstra runs:** _your answer_
-- **Cost per run:** _your answer_
-- **Total complexity:** _your answer_
-- **Justification (one line):** _your answer_
+- **Number of Dijkstra runs:** _k+1_
+- **Cost per run:** _O(mlog(n))
+- **Total complexity:** _O(kmlog(n))_
+- **Justification (one line):** _Given that Dijkstras is ran k+1 times (k relics + S), and Dijkstras has a time complexity of O(mlog(n)), the total complexity comes out to O(kmlog(n))_
 
 ---
 

@@ -96,7 +96,27 @@ def run_dijkstra(graph, source):
 
     TODO
     """
-    pass
+    dist = {node: float('inf') for node in graph}
+    dist[source] = 0
+
+    heap = [(0, source)]
+    visited = set()
+
+    while heap:
+        _, u = heapq.heappop(heap)
+
+        if u in visited:
+            continue
+        visited.add(u)
+
+        # Relaxation check for all neighbors
+        for v, cost_v in graph[u]:
+            new_cost = dist[u] + cost_v
+            if new_cost < dist[v]:
+                dist[v] = new_cost
+                heapq.heappush(heap, (new_cost, v))
+
+    return dist
 
 
 def precompute_distances(graph, spawn, relics, exit_node):
