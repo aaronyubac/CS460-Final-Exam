@@ -19,12 +19,12 @@ I plan on initially implementing core functions which drive our algorithm; this 
 
 ---
 
-## Entry 2 – [Date]: [Short description]
+## Entry 2 – 5/9: run_dijkstra() implementation
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
 
-_Your entry here._
+Initially, I didn't fully understand the heapq library so during implementation of run_dijkstra(), after reviewing how the algorithm worked I just started implementation based on the different working parts of the algorithm. This meant keeping a min heap which kept track of nodes and the cost to reach them. I however didn't have a use for the cost in terms of accessing and was unsure if I should keep it since it wasn't being accessed. However I knew that those weights needed to be used in order to sort within the min heap and after a little research I discovered that heapq sorts tuples based on the first element and uses following elements as tie-breakers. So I kept the cost and when accessing the heap instead of declaring variables for both cost, node I ended up using a blank identifier, `_, node` in order to maintain the cost for sorting while not keeping an unused variable.
 
 ---
 
