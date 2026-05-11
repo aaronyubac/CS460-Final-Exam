@@ -158,7 +158,38 @@ def dijkstra_invariant_check():
 
     TODO
     """
-    return "TODO"
+    return """
+    ## Part 3: Algorithm Correctness
+
+    > Document your understanding of why Dijkstra produces correct distances.
+    > Bullet points and short sentences throughout. No paragraphs.
+
+    ### Part 3a: What the Invariant Means
+
+    - **For nodes already finalized (in S):**
+    distance for a given node is the guaranteed shortest path from the source
+
+    - **For nodes not yet finalized (not in S):**
+    distance for a given node is the shortest path discovered so far from the source traveling through finalized nodes 
+
+    ### Part 3b: Why Each Phase Holds
+
+    - **Initialization : why the invariant holds before iteration 1:**
+    - The source node's distance is set to 0 as the node's distance to itself is naturally 0
+    - All other nodes are not finalized nor discovered and therefore invariant holds
+
+    - **Maintenance : why finalizing the min-dist node is always correct:**
+    - Given nonnegative edge weights (no future paths can reduce cost), any other path would require going through another unfinalized node v which costs greater than or equal to the min-dist node.
+
+    - **Termination : what the invariant guarantees when the algorithm ends:**
+    - All reachable nodes have been finalized and therefore distance for all nodes are the guaranteed shortest path from the source.
+
+    ### Part 3c: Why This Matters for the Route Planner
+
+    > One sentence connecting correct distances to correct routing decisions.
+
+    If distances are incorrect, route costs may be incorrectly calculated and the returned route may not be the optimal route.
+    """
 
 
 # =============================================================================
@@ -175,7 +206,29 @@ def explain_search():
 
     TODO
     """
-    return "TODO"
+    return """
+    ## Part 4: Search Design
+
+    ### Why Greedy Fails
+
+    - **The failure mode:** _Greedy selecting the cheapest discovered edge to an unvisited neighbor which may lead to less than optimal total costs._
+    - **Counter-example setup:** 
+
+    | From / To | A   | B   | C   | T   |
+    | --------- | --- | --- | --- | --- |
+    | S         | 20  | 10  | 20  | -   |
+    | A         | -   | 50  | 10  | 10  |
+    | B         | 10  | -   | 50  | 100 |
+    | C         | 10  | 10  | -   | 100 |
+
+    - **What greedy picks:** _S->B->A->C->T = 10+10+10+100 = 130_
+    - **What optimal picks:** _S->B->C->A->T = 10+50+10+10 = 80_
+    - **Why greedy loses:** _Greedy loses due to failing to account for future better paths_
+
+    ### What the Algorithm Must Explore
+
+    - _The algorithm must explore all possible orders of visiting the relics to find which provides the shortest path to T from S_
+    """
 
 
 # =============================================================================
