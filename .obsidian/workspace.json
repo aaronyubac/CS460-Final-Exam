@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DEVLOG.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DEVLOG"
+              "title": "README"
             }
           }
         ]
@@ -185,8 +185,8 @@
   },
   "active": "d88a10f34c194575",
   "lastOpenFiles": [
-    "README.md",
     "DEVLOG.md",
-    "ASSIGNMENT.md"
+    "ASSIGNMENT.md",
+    "README.md"
   ]
 }
