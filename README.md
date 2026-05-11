@@ -98,20 +98,23 @@ If distances are incorrect, route costs may be incorrectly calculated and the re
 
 ### Why Greedy Fails
 
-> State the failure mode. Then give a concrete counter-example using specific node names
-> or costs (you may use the illustration example from the spec). Three to five bullets.
+- **The failure mode:** _Greedy selecting the cheapest discovered edge to an unvisited neighbor which may lead to less than optimal total costs._
+- **Counter-example setup:** 
 
-- **The failure mode:** _Your answer here._
-- **Counter-example setup:** _Your answer here._
-- **What greedy picks:** _Your answer here._
-- **What optimal picks:** _Your answer here._
-- **Why greedy loses:** _Your answer here._
+| From / To | A   | B   | C   | T   |
+| --------- | --- | --- | --- | --- |
+| S         | 20  | 10  | 20  | -   |
+| A         | -   | 50  | 10  | 10  |
+| B         | 10  | -   | 50  | 100 |
+| C         | 10  | 10  | -   | 100 |
+
+- **What greedy picks:** _S->B->A->C->T = 10+10+10+100 = 130_
+- **What optimal picks:** _S->B->C->A->T = 10+50+10+10 = 80_
+- **Why greedy loses:** _Greedy loses due to failing to account for future better paths_
 
 ### What the Algorithm Must Explore
 
-> One bullet. Must use the word "order."
-
-- _Your answer here._
+- _The algorithm must explore all possible orders of visiting the relics to find which provides the shortest path to T from S_
 
 ---
 
