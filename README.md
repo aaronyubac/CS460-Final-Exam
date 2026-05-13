@@ -125,30 +125,28 @@ If distances are incorrect, route costs may be incorrectly calculated and the re
 > Document the three components of your search state as a table.
 > Variable names here must match exactly what you use in torchbearer.py.
 
-| Component                | Variable name in code | Data type | Description |
-| ------------------------ | --------------------- | --------- | ----------- |
-| Current location         |                       |           |             |
-| Relics already collected |                       |           |             |
-| Fuel cost so far         |                       |           |             |
+| Component                | Variable name in code | Data type   | Description                                |
+| ------------------------ | --------------------- | ----------- | ------------------------------------------ |
+| Current location         | curr_location         | node        | Torchbearer's current location             |
+| Relics already collected | visited               | set\[node\] | Set of relics already collected            |
+| Fuel cost so far         | total_cost            | int         | Total fuel spent to reach current location |
 
 ### Part 5b: Data Structure for Visited Relics
 
 > Fill in the table.
 
-| Property | Your answer |
-|---|---|
-| Data structure chosen | |
-| Operation: check if relic already collected | Time complexity: |
-| Operation: mark a relic as collected | Time complexity: |
-| Operation: unmark a relic (backtrack) | Time complexity: |
-| Why this structure fits | |
+| Property                                    | Your answer                                                                                                            |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Data structure chosen                       | Set                                                                                                                    |
+| Operation: check if relic already collected | Time complexity: O(1)                                                                                                  |
+| Operation: mark a relic as collected        | Time complexity: O(1)                                                                                                  |
+| Operation: unmark a relic (backtrack)       | Time complexity: O(1)                                                                                                  |
+| Why this structure fits                     | Order doesn't matter and allows for quick checks and adding nodes making it good for tracking visited relics sites for |
 
 ### Part 5c: Worst-Case Search Space
 
-> Two bullets.
-
-- **Worst-case number of orders considered:** _Your answer (in terms of k)._
-- **Why:** _One-line justification._
+- **Worst-case number of orders considered:** _k!_
+- **Why:** _When you start you have k choices, then from there you have k-1 choices, then k-2 and so on._
 
 ---
 
@@ -156,30 +154,25 @@ If distances are incorrect, route costs may be incorrectly calculated and the re
 
 ### Part 6a: Best-So-Far Tracking
 
-> Three bullets.
-
-- **What is tracked:** _Your answer here._
-- **When it is used:** _Your answer here._
-- **What it allows the algorithm to skip:** _Your answer here._
+- **What is tracked:** _current best total cost and path taken_
+- **When it is used:** _when comparing with the current total cost and updating path_
+- **What it allows the algorithm to skip:** _when the current total cost exceeds the best so far, the algorithm skips remaining orderings of that branch_
 
 ### Part 6b: Lower Bound Estimation
 
-> Three bullets.
-
-- **What information is available at the current state:** _Your answer here._
-- **What the lower bound accounts for:** _Your answer here._
-- **Why it never overestimates:** _Your answer here._
+- **What information is available at the current state:** _current cost, current location, and relics unvisited_
+- **What the lower bound accounts for:** _current cost + for all unvisited relics, sum(min(dist_table\[curr\]\[relic\]) + dist_table\[relic\]\[exit\]_
+- **Why it never overestimates:** _Dijkstra's is guaranteed optimal, so summing the cheapest cost to each unvisited relic and exit can never overestimate the remaining cost_
 
 ### Part 6c: Pruning Correctness
 
 > One to two bullets. Explain why pruning is safe.
 
-- _Your answer here._
+- Lower bound never overestimates and therefore, current cost + the lower bound is the guaranteed lowest cost to complete the branch
+- If the sum of current cost + the lower bound is greater than or equal to the current best, then there are no ways for the cost to improve (unless negative)
 
 ---
 
 ## References
 
-> Bullet list. If none beyond lecture notes, write that.
-
-- _Your references here._
+- _Lecture Notes_
