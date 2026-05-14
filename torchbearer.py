@@ -255,7 +255,23 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    best = [float('inf'), []]
+ 
+    relics_remaining = set(relics)
+    relics_visited_order = []
+ 
+    _explore(
+        dist_table,
+        current_loc=spawn,
+        relics_remaining=relics_remaining,
+        relics_visited_order=relics_visited_order,
+        cost_so_far=0.0,
+        exit_node=exit_node,
+        best=best
+    )
+ 
+    return (best[0], best[1])
+
 
 
 def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
@@ -287,7 +303,47 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     explaining why it is safe (cannot skip the optimal solution).
     This comment is graded.
     """
-    pass
+    # Base case
+    if not relics_remaining:
+        total_cost = cost_so_far + dist_table[current_loc][exit_node]
+        if total_cost < best[0]:
+            best[0] = total_cost
+            best[1] = relics_visited_order[:]
+        return
+
+    # Dijkstra's guarantees the optimal, so choosing the cheapest to each unvisited relic and exit means the lower bound doesn't overestimate
+    # The pruning is safe because if the cost so far + the minimum possible cost remaining is >= the current best, then there is no way to improve
+    if relics_remaining:
+        lower_bound = sum(dist_table[current_loc][r] for r in relics_remaining) + min(dist_table[r][exit_node] for r in relics_remaining)
+
+    if cost_so_far + lower_bound >= best[0]:
+        return
+
+    # Recursive Case
+    for relic in list(relics_remaining):
+        travel_cost = dist_table[current_loc][relic]
+
+        # Skip unreachable relics.
+        if travel_cost == float('inf'):
+            continue
+
+        # Select relic as next stop
+        relics_remaining.remove(relic)
+        relics_visited_order.append(relic)
+
+        _explore(
+            dist_table,
+            current_loc=relic,
+            relics_remaining=relics_remaining,
+            relics_visited_order=relics_visited_order,
+            cost_so_far=cost_so_far + travel_cost,
+            exit_node=exit_node,
+            best=best
+        )
+
+        # Backtrack
+        relics_remaining.add(relic)
+        relics_visited_order.pop()
 
 
 # =============================================================================
@@ -311,7 +367,9 @@ def solve(graph, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    dist_table = precompute_distances(graph, spawn, relics, exit_node)
+    return find_optimal_route(dist_table, spawn, relics, exit_node)
+
 
 
 # =============================================================================

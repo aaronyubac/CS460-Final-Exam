@@ -161,7 +161,7 @@ If distances are incorrect, route costs may be incorrectly calculated and the re
 ### Part 6b: Lower Bound Estimation
 
 - **What information is available at the current state:** _current cost, current location, and relics unvisited_
-- **What the lower bound accounts for:** _current cost + for all unvisited relics, sum(min(dist_table\[curr\]\[relic\]) + dist_table\[relic\]\[exit\]_
+- **What the lower bound accounts for:** _current cost + for all unvisited relics, sum(dist_table\[curr\]\[relic\]) + dist_table\[relic\]\[exit\]_
 - **Why it never overestimates:** _Dijkstra's is guaranteed optimal, so summing the cheapest cost to each unvisited relic and exit can never overestimate the remaining cost_
 
 ### Part 6c: Pruning Correctness
