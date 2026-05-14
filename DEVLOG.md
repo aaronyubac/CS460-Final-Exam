@@ -34,27 +34,22 @@ Something I had trouble building and understanding the logic of initially was th
 
 ---
 
-## Entry 4 – [Date]: Post-Implementation Reflection
+## Entry 4 – \[5/14\]: Post-Implementation Reflection
 
-> Required. Written after your implementation is complete. Describe what you would
-> change or improve given more time.
-
-_Your entry here._
+While I wouldn't change much and I actually really enjoyed this approach to programming I would however probably build stronger input validation as well as make it more accessible for use by average users maybe via GUI. I also would have provided more documentation so that when I come back to it I have a full idea of what's going on. Overall I thought it was a great experience to go through programming while having that approach of fully grasping the problem and coming up with stronger solutions.
 
 ---
 
-## Final Entry – [Date]: Time Estimate
+## Final Entry – \[5/14\]: Time Estimate
 
-> Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
-
-| Part                           | Estimated Hours |
-| ------------------------------ | --------------- |
-| Part 1: Problem Analysis       | 1               |
-| Part 2: Precomputation Design  |                 |
-| Part 3: Algorithm Correctness  |                 |
-| Part 4: Search Design          |                 |
-| Part 5: State and Search Space |                 |
-| Part 6: Pruning                |                 |
-| Part 7: Implementation         |                 |
-| README and DEVLOG writing      |                 |
-| **Total**                      |                 |
+| Part                           | Estimated Hours  |
+| ------------------------------ | ---------------- |
+| Part 1: Problem Analysis       | 1                |
+| Part 2: Precomputation Design  | 2                |
+| Part 3: Algorithm Correctness  | 1                |
+| Part 4: Search Design          | .5               |
+| Part 5: State and Search Space | 1                |
+| Part 6: Pruning                | 2                |
+| Part 7: Implementation         | Included by part |
+| README and DEVLOG writing      | 5                |
+| **Total**                      | 12.5             |
