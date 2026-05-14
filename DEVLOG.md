@@ -28,9 +28,9 @@ Initially, I didn't fully understand the heapq library so during implementation 
 
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 3 – \[5/14\]: \[\_explore()\]
 
-_Your entry here._
+Something I had trouble building and understanding the logic of initially was the pruning. Once I understood the conditions and logic behind it, I was able to build out a foundation for it. I however had a hole in logic for my initial implementation. Because the way I understood the lower bound to be the sum of the minimums to each node I ended up writing `sum(min())` when gathering the sums of the `dist_table`. This is however wrong because min just returns a single value and I wanted the sum of all those min. I failed to realize that the `dist_table` already provides that minimum distance to a given node and instead I just need `sum()` for all relics remaining without `min()`.
 
 ---
 
